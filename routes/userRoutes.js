@@ -6,11 +6,9 @@ const authMiddleware = require('../middleware/authMiddleware'); // Ensure to imp
 
 const router = express.Router();
 
-// Public routes
+// routes
 router.post('/register', registerUser); // Route for user registration
 router.post('/login', loginUser); // Route for user login
-
-// Protected route that requires authentication
 router.get('/profile', authMiddleware, getUserProfile); // Route to get user profile
 
 module.exports = router; // Export the router
