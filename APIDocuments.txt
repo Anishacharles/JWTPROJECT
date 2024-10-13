@@ -1,0 +1,48 @@
+                     API DOCUMENT
+1)POST: /api/users/register
+Description: Registers a new user.
+Headers: Content-Type: application/json
+Body (JSON):
+{
+  "name": "Femi",
+  "email": "femni@gmail.com",
+  "password": "erttyj_123"
+}
+
+Response (Success):
+message:"User Registered successfully"
+Response (Error):
+message: "The entered user is already exists"
+
+2)POST /api/users/login
+Description: Logs in an existing user.
+Headers:
+Content-Type: application/json
+Body (JSON):
+{
+  "email": "femni@gmail.com",
+  "password": "erttyj_123"
+}
+Response (Success):
+"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3MGJhM2IxNTljNWJlMWIxOGU4NGY3MSIsImlhdCI6MTcyODgxNjE0NCwiZXhwIjoxNzI4ODE5NzQ0fQ.tjh-9_W9COF335bd60r2m50NdCmbmzHrno48tuup7Ds"
+"user":{
+"id":"670ba3b159c5be1eb1e8e4f71",
+ "name": "Femi",
+  "email": "femni@gmail.com"
+}
+
+Response (Error):
+"message": "invalid password"
+
+3)GET /api/users/protected
+Description: Fetch protected data for authenticated users.
+Headers:Authorization: Bearer <JWT Token>
+Response (Success):{
+    "message": "Welcome Femi to your profile page!",
+    "user": {
+        "id": "670ba3b159c5be1b18e84f71",
+        "name": "Femi",
+        "email": "femni@gmail.com"
+    }
+
+
